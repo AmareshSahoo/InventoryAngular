@@ -1,0 +1,25 @@
+<nav aria-label="breadcrumb" class="mt-2">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item active" aria-current="page">Airport Data</li>
+  </ol>
+</nav>
+
+<div class="">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">Airport Name</th>
+        <th scope="col">Fuel Capacity</th>
+        <th scope="col">Fuel Available</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let item of airports">
+      <tr>
+        <td>{{item?.airport_name}}</td>
+        <td>{{item?.fuel_capacity}}</td>
+        <td>{{item?.fuel_available}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
