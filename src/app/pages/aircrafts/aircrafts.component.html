@@ -3,3 +3,29 @@
     <li class="breadcrumb-item active" aria-current="page">Aircraft Data</li>
   </ol>
 </nav>
+
+<div class="">
+  <table class="table table-bordered" *ngIf="aircrafts.length">
+    <thead>
+      <tr>
+        <th scope="col">Aircraft No</th>
+        <th scope="col">Airline</th>
+        <th scope="col">Source</th>
+        <th scope="col">Destination</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let item of aircrafts">
+      <tr>
+        <td>{{item?.aircraft_no}}</td>
+        <td>{{item?.airline}}</td>
+        <td>{{item?.source}}</td>
+        <td>{{item?.destination}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="text-center" *ngIf="aircrafts.length === 0">
+    No Aircrafts Available
+  </div>
+</div>
+

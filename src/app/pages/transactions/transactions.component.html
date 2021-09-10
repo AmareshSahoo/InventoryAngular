@@ -3,3 +3,30 @@
     <li class="breadcrumb-item active" aria-current="page">Transactions Data</li>
   </ol>
 </nav>
+
+<div class="">
+  <table class="table table-bordered" *ngIf="transactions.length">
+    <thead>
+      <tr>
+        <th scope="col">Transaction Date Time</th>
+        <th scope="col">Transaction Type</th>
+        <th scope="col">Airport Name</th>
+        <th scope="col">Airline</th>
+        <th scope="col">Quantity</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let item of transactions">
+      <tr>
+        <td>{{item?.transaction_date_time | date:'full'}}</td>
+        <td>{{item?.transaction_type}}</td>
+        <td>{{item?.airport_id?.airport_name}}</td>
+        <td>{{item?.aircraft_id?.airline}}</td>
+        <td>{{item?.quantity}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div *ngIf="transactions.length === 0" class="text-center">
+    No Transactions Available
+  </div>
+</div>

@@ -3,3 +3,32 @@
     <li class="breadcrumb-item active" aria-current="page">Reports Data</li>
   </ol>
 </nav>
+
+<div class="" *ngFor="let report of reports | keyvalue">
+  <div>{{report.key}}</div>
+  <table class="table table-bordered" *ngIf="reports">
+    <thead>
+      <tr>
+        <th scope="col">Transaction Date Time</th>
+        <th scope="col">Transaction Type</th>
+        <th scope="col">Airport ID</th>
+        <th scope="col">Aircraft ID</th>
+        <th scope="col">Quantity</th>
+      </tr>
+    </thead>
+    <tbody ngfor="let item of report.values">
+      <tr>
+        <td>jjj</td>
+        <!-- <td>{{item?.transaction_date_time | date:'full'}}</td>
+        <td>{{item?.transaction_type}}</td>
+        <td>{{item?.airport_id}}</td>
+        <td>{{item?.aircraft_id}}</td>
+        <td>{{item?.quantity}}</td> -->
+      </tr>
+    </tbody>
+  </table>
+
+  <div *ngIf="!reports" class="text-center">
+    No Transactions Available
+  </div>
+</div>
