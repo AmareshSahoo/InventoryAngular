@@ -3,8 +3,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ngxLoadingAnimationTypes, NgxLoadingModule } from 'ngx-loading';
-
 import { AppRoutingModule } from './app-routing.module';
+import { ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { AircraftsComponent } from './pages/aircrafts/aircrafts.component';
@@ -26,6 +26,7 @@ import { ReportsComponent } from './pages/reports/reports.component';
     CommonModule,
     AppRoutingModule,
     HttpClientModule,
+    ReactiveFormsModule,
     NgxLoadingModule.forRoot({
       animationType: ngxLoadingAnimationTypes.threeBounce,
       backdropBackgroundColour: 'rgba(0,0,0,0.3)',

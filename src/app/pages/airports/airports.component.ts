@@ -28,6 +28,7 @@ export class AirportsComponent implements OnInit {
     },(err)=>{
     this.loading.setLoading(false);
       console.log(err);
+      alert(err.message);
     })
   }
 }

@@ -25,7 +25,8 @@ export class AircraftsComponent implements OnInit {
       this.aircrafts = res.data;
       this.loading.setLoading(false);
     },(err)=>{
-    this.loading.setLoading(false);
+      this.loading.setLoading(false);
+      alert(err.message);
       console.log(err);
     })
   }

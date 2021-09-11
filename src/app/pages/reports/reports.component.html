@@ -4,31 +4,39 @@
   </ol>
 </nav>
 
-<div class="" *ngFor="let report of reports | keyvalue">
-  <div>{{report.key}}</div>
-  <table class="table table-bordered" *ngIf="reports">
-    <thead>
-      <tr>
-        <th scope="col">Transaction Date Time</th>
-        <th scope="col">Transaction Type</th>
-        <th scope="col">Airport ID</th>
-        <th scope="col">Aircraft ID</th>
-        <th scope="col">Quantity</th>
-      </tr>
-    </thead>
-    <tbody ngfor="let item of report.values">
-      <tr>
-        <td>jjj</td>
-        <!-- <td>{{item?.transaction_date_time | date:'full'}}</td>
-        <td>{{item?.transaction_type}}</td>
-        <td>{{item?.airport_id}}</td>
-        <td>{{item?.aircraft_id}}</td>
-        <td>{{item?.quantity}}</td> -->
-      </tr>
-    </tbody>
-  </table>
-
-  <div *ngIf="!reports" class="text-center">
-    No Transactions Available
+<button class="btn btn-secondary " type="button" *ngIf="!isEmptyObject(reports)" (click)="SavePDF()"> Save PDF</button>
+<div  *ngIf="!isEmptyObject(reports)">
+  <div #content>
+    <div class="content" id="content"   *ngFor="let report of reports | keyvalue" >
+      <div style="font-weight: bold;
+      margin: 15px 5px;
+      font-size: 18px;">{{report.key}}</div>
+      <table class="table table-bordered" *ngIf="reports">
+        <thead>
+          <tr>
+            <th scope="col">Date Time</th>
+            <th scope="col">Type</th>
+            <th scope="col">Fuel Quantity</th>
+            <th scope="col">Aircraft</th>
+          </tr>
+        </thead>
+        <tbody >
+          <tr *ngFor="let item of report.value">
+            <td>{{item?.transaction_date_time | date:'medium'}}</td>
+            <td>{{item?.transaction_type}}</td>
+            <td>{{item?.quantity}}</td>
+            <td>{{item?.aircraft_id?.airline ? item?.aircraft_id?.airline : 'NA'}}</td>
+          </tr>
+        </tbody>
+      </table>
+      <div style="margin: 15px 5px;
+      font-size: 14px;"> Available Fuel : {{report.value[0]['airport_id']['fuel_available']}}, Fuel Capacity : {{report.value[0]['airport_id']['fuel_capacity']}} </div>
+      <hr>
+    </div>
   </div>
+
+
+</div>
+<div *ngIf="isEmptyObject(reports)" class="text-center">
+  No Reports Available
 </div>
