@@ -4,8 +4,7 @@
 
 export const environment = {
   production: false,
-  // serverUrl: "http://455-node-12.code2rock.mindfire-solutions.in/api/v1"
-  serverUrl: "http://localhost:8080/api/v1"
+  serverUrl: "http://455-node-12.code2rock.mindfire-solutions.in/api/v1"
 };
 
 /*
